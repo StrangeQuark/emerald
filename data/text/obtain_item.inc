@@ -29,3 +29,15 @@ gText_NoRoomLeftForAnother::
 gText_TheDecorWasTransferredToThePC::
 	.string "The {STR_VAR_2} was transferred\n"
 	.string "to the PC.$"
+
+gText_FruitBearingTree:
+	.string "It's a fruit-bearing tree.\p"
+	.string "Hey!\n"
+	.string "It's {STR_VAR_2}!$"
+
+gText_FruitBearingTreeNothingHere:
+	.string "It's a fruit-bearing tree.\p"
+	.string "Looks like there's nothing here…$"
+
+gText_FruitBearingTreeBagFull:
+	.string "But the BAG is full…$"
