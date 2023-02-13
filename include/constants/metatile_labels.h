@@ -1,6 +1,10 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_AzaleaTown
+#define METATILE_AzaleaTown_FruitTreeTop          0x22D
+#define METATILE_AzaleaTown_FruitTreeTop_NoFruit  0x22C
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
@@ -218,6 +222,12 @@
 #define METATILE_Fortree_SecretBase_ShrubOpen              0x278
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
+
+// gTileset_
+#define METATILE_FruitTreeTop  0x22D
+
+// gTileset_FruitTreeTop
+#define METATILE_FruitTreeTop_NoFruit  0x22C
 
 // gTileset_FuchsiaCity
 #define METATILE_FuchsiaCity_Door  0x2BD

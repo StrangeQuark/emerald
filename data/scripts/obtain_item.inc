@@ -28,6 +28,7 @@ EventScript_BufferItemsPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_ITEMS
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
+	
 
 EventScript_BufferKeyItemsPocket::
 	bufferstdstring STR_VAR_3, STDSTRING_KEYITEMS
@@ -154,6 +155,43 @@ EventScript_HiddenItemScript::
 	goto_if_eq VAR_0x8007, FALSE, EventScript_NoRoomForHiddenItem
 	end
 
+EventScript_FruitTree::
+	lockall
+	special GetFruitTreeItem
+	compare VAR_RESULT, 0
+	goto_if_eq FruitTree_EventScript_NothingHere
+	copyvar VAR_0x8000, VAR_RESULT
+	bufferitemnameplural 1, VAR_0x8000, 1
+	msgbox gText_FruitBearingTree
+
+@ Done so the fruit only disappears from the tree if it can be put in the bag,
+@ but before the actual giveitem text appears.
+
+	checkitemspace VAR_0x8000, 1
+	compare VAR_RESULT, 1
+	call_if_eq FruitTree_TakeItemFromTree
+	giveitem VAR_0x8000
+	compare VAR_RESULT, 0
+	goto_if_eq FruitTree_NotEnoughSpace
+	addvar VAR_0x8004, FLAG_FRUIT_TREES_START - 1
+	special SetHiddenItemFlag
+	releaseall
+	return
+
+FruitTree_NotEnoughSpace:
+	msgbox gText_FruitBearingTreeBagFull
+	releaseall
+	return
+
+FruitTree_TakeItemFromTree:
+	special SetFruitTreeMetatileTakenFromId
+	return
+
+FruitTree_EventScript_NothingHere:
+	msgbox gText_FruitBearingTreeNothingHere
+	releaseall
+	return
+	
 EventScript_PickUpHiddenItem::
 	copyvar VAR_0x8008, VAR_0x8004
 	copyvar VAR_0x8004, VAR_0x8005

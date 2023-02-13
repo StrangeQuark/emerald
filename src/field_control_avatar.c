@@ -359,6 +359,9 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
                 return SecretBase_EventScript_CheckEntrance;
         }
         return NULL;
+    case BG_EVENT_FRUIT_TREE:
+        gSpecialVar_0x8004 = bgEvent->bgUnion.berryTreeId;
+        return EventScript_FruitTree;
     }
 
     return bgEvent->bgUnion.script;

@@ -394,6 +394,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 
 LittlerootTown_EventScript_TownSign::
 	msgbox LittlerootTown_Text_TownSign, MSGBOX_SIGN
+	giveitem ITEM_POTION
 	end
 
 LittlerootTown_EventScript_BirchsLabSign::

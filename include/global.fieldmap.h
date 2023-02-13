@@ -110,6 +110,7 @@ struct BgEvent
             u16 hiddenItemId;
         } hiddenItem;
         u32 secretBaseId;
+        u16 berryTreeId;
     } bgUnion;
 };
 
