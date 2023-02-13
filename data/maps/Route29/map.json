@@ -59,6 +59,12 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "fruit_tree",
+      "x": 14,
+      "y": 4,
+      "elevation": 3,
+      "fruit_tree_id": "FRUIT_TREE_ROUTE_29"
+    }
   ]
 }

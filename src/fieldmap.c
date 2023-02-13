@@ -16,6 +16,7 @@
 #include "tv.h"
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
+#include "fruit_tree.h"
 
 struct ConnectionFlags
 {
@@ -72,6 +73,7 @@ void InitMap(void)
 {
     InitMapLayoutData(&gMapHeader);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
+    SetFruitTreeMetatiles(FALSE);
     RunOnLoadMapScript();
 }
 
@@ -80,6 +82,7 @@ void InitMapFromSavedGame(void)
     InitMapLayoutData(&gMapHeader);
     InitSecretBaseAppearance(FALSE);
     SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
+    SetFruitTreeMetatiles(FALSE);
     LoadSavedMapView();
     RunOnLoadMapScript();
     UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
@@ -185,6 +188,8 @@ static void FillConnection(int x, int y, struct MapHeader const *connectedMapHea
         dest += gBackupMapLayout.width;
         src += mapWidth;
     }
+
+    SetFruitTreeMetatilesOnConnectedMap(x, y, connectedMapHeader, x2, y2, width, height);
 }
 
 static void FillSouthConnection(struct MapHeader const *mapHeader, struct MapHeader const *connectedMapHeader, s32 offset)
