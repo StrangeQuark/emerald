@@ -48,12 +48,13 @@ LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect::
 	case 0, LilycoveCity_Harbor_EventScript_GoToSlateport
 	case 1, LilycoveCity_Harbor_EventScript_GoToBattleFrontier
 	case 2, LilycoveCity_Harbor_EventScript_GoToVermilion
-	case 3, LilycoveCity_Harbor_EventScript_GoToSevii
-	case 4, LilycoveCity_Harbor_EventScript_GoToSouthernIsland
-	case 5, LilycoveCity_Harbor_EventScript_GoToNavelRock
-	case 6, LilycoveCity_Harbor_EventScript_GoToBirthIsland
-	case 7, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
-	case 8, LilycoveCity_Harbor_EventScript_ExitSailSelect
+	case 3, LilycoveCity_Harbor_EventScript_GoToOlivine
+	case 4, LilycoveCity_Harbor_EventScript_GoToSevii
+	case 5, LilycoveCity_Harbor_EventScript_GoToSouthernIsland
+	case 6, LilycoveCity_Harbor_EventScript_GoToNavelRock
+	case 7, LilycoveCity_Harbor_EventScript_GoToBirthIsland
+	case 8, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
+	case 9, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	end
 
@@ -111,6 +112,17 @@ LilycoveCity_Harbor_EventScript_GoToVermilion:: @ 821E149
 	setvar VAR_SS_TIDAL_STATE, SS_TIDAL_BOARD_LILYCOVE
 	call LilycoveCity_Harbor_EventScript_BoardFerry
 	warp MAP_SSANNE_EXTERIOR, 255, 32, 13
+	waitstate
+	release
+	end
+
+LilycoveCity_Harbor_EventScript_GoToOlivine:: @ 821E149
+	msgbox LilycoveCity_Harbor_Text_OlivineItIs, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_Harbor_EventScript_FerryDestinationChangeMind
+	setvar VAR_SS_TIDAL_STATE, SS_TIDAL_BOARD_LILYCOVE
+	call LilycoveCity_Harbor_EventScript_BoardFerry
+	warp MAP_OLIVINE_CITY_HARBOR, 255, 8, 5
 	waitstate
 	release
 	end
@@ -677,6 +689,9 @@ LilycoveCity_Harbor_Text_SlateportItIs:
 
 LilycoveCity_Harbor_Text_VermilionItIs: @ 821E864
 	.string "VERMILION CITY it is, then!$"
+
+LilycoveCity_Harbor_Text_OlivineItIs: @ 821E864
+	.string "OLIVINE CITY it is, then!$"
 
 LilycoveCity_Harbor_Text_Sevii1ItIs: @ 821E864
 	.string "ONE ISLAND it is, then!$"
