@@ -748,6 +748,7 @@ extern const u8 gText_FirePunch48BP[];
 extern const u8 gText_SlateportCity[];
 extern const u8 gText_BattleFrontier[];
 extern const u8 gText_VermilionCity[];
+extern const u8 gText_OlivineCity[];
 extern const u8 gText_Sevii[];
 extern const u8 gText_SouthernIsland[];
 extern const u8 gText_NavelRock[];

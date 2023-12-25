@@ -1230,6 +1230,7 @@ const u8 gText_Sevii4[] = _("FOUR ISLAND");
 const u8 gText_Sevii5[] = _("FIVE ISLAND");
 const u8 gText_Sevii6[] = _("SIX ISLAND");
 const u8 gText_Sevii7[] = _("SEVEN ISLAND");
+const u8 gText_OlivineCity[] = _("OLIVINE CITY");
 
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} SINGLE");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} DOUBLE");

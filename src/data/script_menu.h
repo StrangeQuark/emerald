@@ -957,6 +957,7 @@ static const u8 *const sLilycoveSSTidalDestinations[SSTIDAL_SELECTION_COUNT] =
     [SSTIDAL_SELECTION_SLATEPORT]       = gText_SlateportCity,
     [SSTIDAL_SELECTION_BATTLE_FRONTIER] = gText_BattleFrontier,
     [SSTIDAL_SELECTION_VERMILION]		= gText_VermilionCity,
+    [SSTIDAL_SELECTION_OLIVINE]		= gText_OlivineCity,
     [SSTIDAL_SELECTION_SEVII]		= gText_Sevii,
     [SSTIDAL_SELECTION_SOUTHERN_ISLAND] = gText_SouthernIsland,
     [SSTIDAL_SELECTION_NAVEL_ROCK]      = gText_NavelRock,

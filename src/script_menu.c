@@ -582,6 +582,8 @@ static void CreateLilycoveSSTidalMultichoice(void)
         selectionCount++;
         sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_VERMILION;
         selectionCount++;
+        sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_OLIVINE;
+        selectionCount++;
         sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_SEVII;
         selectionCount++;
 
