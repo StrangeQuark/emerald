@@ -684,6 +684,9 @@ enum
     MENU_TRADE1,
     MENU_TRADE2,
     MENU_TOSS,
+    MENU_KANTO,
+    MENU_JOHTO,
+    MENU_HOENN,
     MENU_FIELD_MOVES,
 };
 
@@ -735,6 +738,9 @@ struct
     [MENU_TRADE1] = {gText_Trade4, CursorCb_Trade1},
     [MENU_TRADE2] = {gText_Trade4, CursorCb_Trade2},
     [MENU_TOSS] = {gMenuText_Toss, CursorCb_Toss},
+    [MENU_KANTO] = {gText_Kanto, CursorCb_Kanto},
+    [MENU_JOHTO] = {gText_Johto, CursorCb_Johto},
+    [MENU_HOENN] = {gText_Hoenn, CursorCb_Hoenn},
     [MENU_FIELD_MOVES + FIELD_MOVE_CUT] = {gMoveNames[MOVE_CUT], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_FLASH] = {gMoveNames[MOVE_FLASH], CursorCb_FieldMove},
     [MENU_FIELD_MOVES + FIELD_MOVE_ROCK_SMASH] = {gMoveNames[MOVE_ROCK_SMASH], CursorCb_FieldMove},

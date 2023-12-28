@@ -3032,4 +3032,8 @@ extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
 
+//Custom
+extern const u8 gText_Kanto[];
+extern const u8 gText_Johto[];
+
 #endif // GUARD_STRINGS_H

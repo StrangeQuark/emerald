@@ -397,11 +397,15 @@ static void CursorCb_Register(u8);
 static void CursorCb_Trade1(u8);
 static void CursorCb_Trade2(u8);
 static void CursorCb_Toss(u8);
+static void CursorCb_Kanto(u8);
+static void CursorCb_Johto(u8);
+static void CursorCb_Hoenn(u8);
 static void CursorCb_FieldMove(u8);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
+static bool8 CreateMapSelectionWindow(u8);
 
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
@@ -3672,8 +3676,9 @@ static void CursorCb_FieldMove(u8 taskId)
                 sPartyMenuInternal->data[0] = fieldMove;
                 break;
             case FIELD_MOVE_FLY:
-                gPartyMenu.exitCallback = CB2_OpenFlyMap;
-                Task_ClosePartyMenu(taskId);
+                CreateMapSelectionWindow(taskId);
+                // gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                // Task_ClosePartyMenu(taskId);
                 break;
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
@@ -6349,4 +6354,46 @@ void IsLastMonThatKnowsSurf(void)
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
     }
+}
+
+static void SetRegionSelectionActions()
+{
+    sPartyMenuInternal->numActions = 0;
+
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_KANTO);
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_JOHTO);
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_HOENN);
+}
+
+static void CursorCb_Kanto(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gPartyMenu.exitCallback = CB2_OpenFlyMap;
+    Task_ClosePartyMenu(taskId);
+}
+
+static void CursorCb_Johto(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gPartyMenu.exitCallback = CB2_OpenFlyMap;
+    Task_ClosePartyMenu(taskId);
+}
+
+static void CursorCb_Hoenn(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gPartyMenu.exitCallback = CB2_OpenFlyMap;
+    Task_ClosePartyMenu(taskId);
+}
+
+static bool8 CreateMapSelectionWindow(u8 taskId)
+{
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+
+    SetRegionSelectionActions();
+
+    DisplaySelectionWindow(SELECTWINDOW_ACTIONS);
+    DisplayPartyMenuStdMessage(PARTY_MSG_DO_WHAT_WITH_MON);
+
+    return TRUE;
 }
